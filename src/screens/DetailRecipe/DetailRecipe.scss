@@ -1,0 +1,203 @@
+.center-by-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.template-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+
+    // align-items: center;
+    .extend-template-wrapper1 {
+        width: 20%;
+        display: 'flex';
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        .detail-container-img {
+            img {
+                width: 100%;
+            }
+
+        }
+
+        .detail-container-1 {
+            @extend .center-by-flex;
+            flex-direction: column;
+            width: 100%;
+            height: 110px;
+
+            :nth-child(1) {
+                margin-left: 10px;
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+            :nth-child(2) {
+                @extend .center-by-flex;
+                width: 100%;
+                font-size: 25px;
+                font-weight: 600;
+                text-align: center;
+                color: $primary;
+            }
+        }
+    }
+
+    .extend-template-wrapper2 {
+        width: 75%;
+        background-color: white;
+
+        .recipe-desc {
+            width: 100%;
+
+            .recipe-desc-header {
+                width: 100%;
+                display: inline-block;
+                justify-content: space-between;
+                align-items: center;
+                position: relative;
+                margin-bottom: 150px;
+
+                .desc {
+                    width: 30%;
+                    height: 60px;
+                    font-size: 17px;
+                    font-weight: 600;
+                    background-color: $body-hover;
+                    @extend .center-by-flex
+                }
+
+                .youtube {
+                    position: absolute;
+                    display: block;
+                    color: $primary;
+                    top: -30px;
+                    right: 0px;
+
+                    .blog {
+                        font-weight: bold;
+                        font-size: 15px;
+                        text-decoration: none;
+                        color: $primary;
+                    }
+                }
+            }
+
+            :nth-child(2) {
+                margin: 10px 20px;
+                font-size: 17px;
+                line-height: 30px;
+                @extend .center-by-flex
+            }
+
+            :nth-child(3) {
+                width: 100%;
+                height: 500px;
+            }
+        }
+
+        .recipe-ingredient-container {
+            width: 100%;
+
+            .recipe-table {
+                @extend .center-by-flex;
+                width: 100%;
+
+                .table-desc {
+                    @extend .center-by-flex;
+                    width: 50%;
+                    height: 60px;
+                    font-size: 17px;
+                    transition: 0.3s;
+                }
+
+                .table-desc:hover {
+                    transition: 0.3s;
+                    background-color: $body-hover;
+
+                }
+
+                .pink-text {
+                    color: $primary
+                }
+
+                .table-header {
+                    @extend .center-by-flex;
+                    width: 50%;
+                    height: 45px;
+                    font-size: 17px;
+                    font-weight: 600;
+                    background-color: $body-hover;
+                    border-bottom: 1px solid rgb(197, 195, 195);
+                }
+            }
+
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+    .template-wrapper {
+        .extend-template-wrapper1 {
+            width: 30%;
+        }
+        .extend-template-wrapper2 {
+            width: 70%;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 428px) {
+    .template-wrapper {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .extend-template-wrapper1 {
+            width: 90%;
+        }
+        .extend-template-wrapper2 {
+            width: 95%;
+            padding: 30px 0px;
+        }
+    }
+}
+
+@media screen and (max-width: 428px) and (min-width: 320px) {
+    .template-wrapper {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .extend-template-wrapper1 {
+            width: 95%;
+        }
+        .extend-template-wrapper2 {
+            width: 95%;
+            padding: 30px 0px;
+            .recipe-desc {
+                text-align: justify;
+                :nth-child(2){
+                    margin: 0px 0px ;
+                }
+                .recipe-desc-header {
+                    margin-bottom: 0px;
+                    .desc{
+                        width: 50%;
+                    }
+                    .youtube{
+                        margin: 15px 0px;
+                        position: relative;
+                        top: 0px;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+}
